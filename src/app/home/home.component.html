@@ -1,0 +1,165 @@
+<!-- The Modal
+<div
+  class="modal"
+  id="exampleModalToggle"
+  aria-hidden="true"
+  aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+       Modal Header
+      <div class="modal-header">
+        <h4 class="modal-title">User Details:</h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+  Modal body 
+      <div
+        class="modal-body"
+        *ngFor="let data of this.userData; let i = index"
+        class="tablebody"
+      >
+        <label for="email">Email</label>
+        <input
+          type="email "
+          readonly
+          name="email"
+          class=""
+          value="{{ data.email }}"
+        />
+        <label for="username">username</label>
+        <input type="text" name="text" class="" value="{{ data.username }}" />
+      </div>
+
+ Modal footer
+      <div class="modal-footer">
+        <button
+          class="btn btn-primary"
+          data-bs-target="#exampleModalToggle"
+          data-bs-toggle="modal"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="container-fluid m-0 mt-1 mb-0 home">
+  <div class="navbarbox m-0 p-1 mt-2 mb-5 text-dark container-fluid">
+    <nav class="navbarbox navbar-expand-lg">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse navbar-dark"
+        id="navbarSupportedContent"
+      >
+        <ul
+          class="navbar-nav mr-auto"
+          role="presentation"
+          routerLinkActive="active"
+        >
+          <li class="nav-item active">
+            <a
+              class="nav-link text-dark mx-5"
+              routerLinkActive="active"
+              routerLink="['/home']"
+              >Home
+            </a>
+          </li>
+          <li
+            class="nav-item active"
+            role="presentation"
+            routerLinkActive="active"
+          >
+            <a
+              class="nav-link text-dark"
+              routerLinkActive="active"
+              routerLink="['/user-info']"
+              >Users Info</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Http fetch request data into a table  -->
+
+  <table class="mt-2 mb-0 table container table-borderless">
+    <thead class="thead bg-light text-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Email</th>
+        <th scope="col">Username</th>
+        <th>Edit User</th>
+        <th>Delete User</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let data of this.userData; let i = index" class="tablebody">
+      <tr class="click">
+        <th scope="row" class="align-center">{{ data.id }}</th>
+        <td>
+          <a (click)="userSel(i)" class="userselect">{{ data.email }}</a>
+        </td>
+        <td>
+          <a (click)="userSel(i)" class="userselect">{{ data.username }}</a>
+        </td>
+        <td
+          (click)="editUser()"
+          data-bs-toggle="modal"
+          href="#exampleModalToggle"
+          style="cursor: pointer; font-weight: bold"
+        >
+          <button class="editbutton" data-toggle="modal" data-target="#myModal">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="svgIcon1"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+              />
+            </svg>
+          </button>
+        </td>
+
+        <td (click)="deleteItem(i)">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="svgIcon2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Modal to edit  -->
+
+  <!-- Button trigger modal -->
+
+  <footer class="container-fluid p-2 mt-0"></footer>
+</div>

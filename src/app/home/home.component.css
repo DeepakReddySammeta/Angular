@@ -1,0 +1,31 @@
+.home {
+  background-color: #d1d1d1;
+}
+.editbutton {
+  border-radius: 50px;
+}
+.svgIcon1 {
+  width: 16px;
+  height: 16px;
+  stroke: green;
+}
+
+.svgIcon2 {
+  width: 24px;
+  height: 24px;
+  stroke: red;
+}
+
+.navbarbox {
+  background-color: #7882a4;
+}
+footer {
+  background-color: #7882a4;
+}
+.userselect {
+  text-decoration: none;
+  color: black;
+}
+.click {
+  cursor: pointer;
+}
